@@ -15,6 +15,7 @@ public class DataDiriMhsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_diri_mhs);
+        this.setTitle("SI KRS - Hai {Nama MHS}");
         Button simpanBtn = (Button)findViewById(R.id.btnSimpan);
         simpanBtn.setOnClickListener(new View.OnClickListener() {
             @Override

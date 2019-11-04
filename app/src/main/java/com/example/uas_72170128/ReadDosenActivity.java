@@ -13,7 +13,7 @@ public class ReadDosenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_dosen);
-
+        this.setTitle("SI KRS - Hai {Nama Admin}");
         ImageButton dosen1Btn = findViewById(R.id.dsn1);
         ImageButton dosen2Btn = findViewById(R.id.dsn2);
 

@@ -10,5 +10,6 @@ public class DaftarKrsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_krs);
+        this.setTitle("SI KRS - Hai {Nama MHS}");
     }
 }

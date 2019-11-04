@@ -13,7 +13,7 @@ public class ReadMatkulActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_matkul);
-
+        this.setTitle("SI KRS - Hai {Nama Mhs}");
         Button btnCreate = findViewById(R.id.btnCreate);
         Button btnEdit = findViewById(R.id.btnEdit);
 

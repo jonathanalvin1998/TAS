@@ -52,6 +52,8 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
+        this.setTitle("SI KRS - Hai {Nama Admin}");
+
         ImageButton dosenBtn = findViewById(R.id.btnDosen);
         ImageButton dataBtn = findViewById(R.id.btnDataDiri);
         ImageButton matkulBtn = findViewById(R.id.btnMatkul);

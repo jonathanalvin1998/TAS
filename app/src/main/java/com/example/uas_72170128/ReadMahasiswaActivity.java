@@ -23,6 +23,7 @@ public class ReadMahasiswaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_mahasiswa);
+        this.setTitle("SI KRS - Hai {Nama Mahasiswa}");
         addData();
 
             recyclerView = findViewById(R.id.rvMahasiswa);
