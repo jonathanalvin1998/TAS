@@ -2,11 +2,32 @@ package com.example.uas_72170128.Model;
 
 import android.widget.ImageButton;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Mahasiswa {
+    @SerializedName("id")
+    @Expose
+    private String id;
+
+    @SerializedName("nama")
+    @Expose
     private String nama;
+
+    @SerializedName("nim")
+    @Expose
     private String nim;
+
+    @SerializedName("alamat")
+    @Expose
     private String alamat;
+
+    @SerializedName("email")
+    @Expose
     private String email;
+
+    @SerializedName("img")
+    @Expose
     private int img;
 
     public Mahasiswa(String nama, String nim, String alamat,String email, int img) {

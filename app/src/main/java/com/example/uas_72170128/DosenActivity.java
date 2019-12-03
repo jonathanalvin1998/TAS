@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,6 +34,11 @@ public class DosenActivity extends AppCompatActivity {
                 })
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
+                                SharedPreferences prefs = DosenActivity.this.getSharedPreferences("prefs_file",MODE_PRIVATE);
+                                String statusLogin = prefs.getString("isLogin",null);
+                                SharedPreferences.Editor edit = prefs.edit();
+                                edit.putString("isLogin",null);
+                                edit.commit();
                                 Intent i = new Intent(DosenActivity.this,LoginActivity.class);
                                 startActivity(i);
                             }
@@ -48,7 +54,7 @@ public class DosenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dosen);
-        this.setTitle("SI KRS - Hai {Nama Dosen}");
+        this.setTitle("SI KRS - Hai {Nama Mahasiswa}");
         ImageButton dataKlsBtn = findViewById(R.id.btnLihatKelas);
         ImageButton krsBtn = findViewById(R.id.btnDaftarKrs);
         ImageButton dataDiriBtn = findViewById(R.id.btnDataDiri);
@@ -67,7 +73,7 @@ public class DosenActivity extends AppCompatActivity {
         });
         dataDiriBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent i = new Intent(DosenActivity.this,DataDiriMhsActivity.class);
+                Intent i = new Intent(DosenActivity.this,CreateMahasiswaActivity.class);
                 startActivity(i);
             }
         });

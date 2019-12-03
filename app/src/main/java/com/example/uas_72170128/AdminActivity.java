@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,8 +36,14 @@ public class AdminActivity extends AppCompatActivity {
                         })
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
+                                SharedPreferences prefs = AdminActivity.this.getSharedPreferences("prefs_file",MODE_PRIVATE);
+                                String statusLogin = prefs.getString("isLogin",null);
+                                SharedPreferences.Editor edit = prefs.edit();
+                                edit.putString("isLogin",null);
+                                edit.commit();
                                 Intent i = new Intent(AdminActivity.this,LoginActivity.class);
                                 startActivity(i);
+
                             }
                         });
                 AlertDialog dialog = builder.create();

@@ -8,16 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        this.getSupportActionBar().hide();
 
-        TextView email = findViewById(R.id.txt_email);
-        SharedPreferences prefs = LoginActivity.this.getSharedPreferences("prefs_file",MODE_PRIVATE);
-        String statusLogin = prefs.getString("isLogin",null);
         Button btnLogin = (Button)findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(myBtnLoginClick);
     }
@@ -26,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             SharedPreferences prefs = LoginActivity.this.getSharedPreferences("prefs_file",MODE_PRIVATE);
-
             String statusLogin = prefs.getString("isLogin",null);
             SharedPreferences.Editor edit = prefs.edit();
 
@@ -42,6 +40,10 @@ public class LoginActivity extends AppCompatActivity {
                 edit.commit();
                 Intent i = new Intent(LoginActivity.this,AdminActivity.class);
                 startActivity(i);         }
+            else {
+                Toast.makeText(LoginActivity.this, "Email anda salah !!",
+                        Toast.LENGTH_SHORT).show();
+            }
 
         } };
 }
