@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class Mahasiswa {
     @SerializedName("id")
     @Expose
-    private String id;
+    private int id;
 
     @SerializedName("nama")
     @Expose
@@ -28,9 +28,9 @@ public class Mahasiswa {
 
     @SerializedName("img")
     @Expose
-    private int img;
+    private String img;
 
-    public Mahasiswa(String nama, String nim, String alamat,String email, int img) {
+    public Mahasiswa(String nama, String nim, String alamat,String email, String img) {
         this.nama = nama;
         this.nim = nim;
         this.alamat = alamat;
@@ -62,15 +62,23 @@ public class Mahasiswa {
         this.alamat = alamat;
     }
 
-    public int getImg(){
+    public String  getImg(){
         return img;
     }
 
-    public void setImg(int img){
+    public void setImg(String img){
         this.img = img;
     }
 
     public String getEmail(){return email;}
 
     public void setEmail(String email) {this.email = email;}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

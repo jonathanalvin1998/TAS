@@ -1,5 +1,7 @@
 package com.example.uas_72170128.Adapter;
 
+import android.content.Context;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,8 @@ import java.util.ArrayList;
 
 public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.ViewHolder>{
     ArrayList<Mahasiswa> dataList;
+    public Context context;
+
     public MahasiswaAdapter(ArrayList<Mahasiswa> dataList) {
         this.dataList = dataList;
     }
@@ -34,7 +38,8 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.View
         Mhs.txtNim.setText(dataList.get(Position).getNim());
         Mhs.txtEmail.setText(dataList.get(Position).getEmail());
         Mhs.txtAlamat.setText(dataList.get(Position).getAlamat());
-        Mhs.img.setImageResource(dataList.get(Position).getImg());
+        Mhs.img.getLayoutParams().width = 100;
+        Mhs.img.getLayoutParams().height = 100;
     }
 
     @Override
@@ -43,7 +48,8 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.View
         return (dataList !=null) ? dataList.size():0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder
+            implements View.OnCreateContextMenuListener{
         private TextView txtNama,txtNim,txtEmail,txtAlamat;
         private ImageButton img;
 
@@ -54,7 +60,14 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.View
             txtEmail = view.findViewById(R.id.txt_email);
             txtAlamat = view.findViewById(R.id.txt_alamat);
             img = view.findViewById(R.id.img);
+            view.setOnCreateContextMenuListener(this);
+        }
 
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            menu.setHeaderTitle("Pilih Aksi");
+            menu.add(this.getAdapterPosition(),v.getId(),0,"Ubah Data Mahasiswa");
+            menu.add(this.getAdapterPosition(),v.getId(),0,"Hapus Data Mahasiswa");
         }
     }
 }

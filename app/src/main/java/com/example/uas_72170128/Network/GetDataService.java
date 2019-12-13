@@ -17,12 +17,13 @@ import retrofit2.http.Query;
 
 public interface GetDataService {
 
-      @GET("/api/progmob/dosen/{nim_progmob}")
+    @GET("/api/progmob/dosen/{nim_progmob}")
    Call<ArrayList<Dosen>> getDosenAll(@Path("nim_progmob") String nim_progmob);
-   //Call<List<Dosen>> getDosenAll(@Query("nim_progmob") String nim_progmob);
+    @GET("/api/progmob/mhs/{nim_progmob}")
+    Call<ArrayList<Mahasiswa>> getMahasiswaAll(@Path("nim_progmob") String nim_progmob);
 //
    @FormUrlEncoded
- @POST("/api/progmob/dosen/create")
+ @POST("/api/progmob/dosen/createfoto")
    Call<Dosen> insert_dosen(
     @Field("nama") String nama,
     @Field("nidn") String nidn,
@@ -39,7 +40,7 @@ public interface GetDataService {
       @Field("nim_progmob") String nim_progmob
    );
     @FormUrlEncoded
-    @POST("/api/progmob/dosen/update")
+    @POST("/api/progmob/dosen/updatewithfoto")
     Call<Dosen> update_dosen(
             @Field("id") int id,
             @Field("nama") String nama,
@@ -50,7 +51,34 @@ public interface GetDataService {
             @Field("foto") String foto,
             @Field("nim_progmob") String nim_progmob
     );
-
+    @FormUrlEncoded
+    @POST("/api/progmob/mhs/create")
+    Call<Mahasiswa> insert_mahasiswa(
+            @Field("id") int id,
+            @Field("nama") String nama,
+            @Field("nim") String nim,
+            @Field("alamat") String alamat,
+            @Field("email") String email,
+            @Field("foto") String foto,
+            @Field("nim_progmob") String nim_progmob
+    );
+    @FormUrlEncoded
+    @POST("/api/progmob/mhs/delete")
+    Call<Mahasiswa> delete_mahasiswa(
+            @Field("id") int id,
+            @Field("nim_progmob") String nim_progmob
+    );
+    @FormUrlEncoded
+    @POST("/api/progmob/mhs/update")
+    Call<Mahasiswa> update_mahasiswa(
+            @Field("id") int id,
+            @Field("nama") String nama,
+            @Field("nim") String nim,
+            @Field("alamat") String alamat,
+            @Field("email") String email,
+            @Field("foto") String foto,
+            @Field("nim_progmob") String nim_progmob
+    );
     /*@FormUrlEncoded
     @POST("/si_mapping/api/user_login.php")
     Call<UserLogin> getUserLogin(

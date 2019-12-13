@@ -3,6 +3,7 @@ package com.example.uas_72170128.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,7 +45,7 @@ public class KelasAdapter extends RecyclerView.Adapter<KelasAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView txtHari, txtJumMhs, txtDsn, txtSesi;
-//        ImageView ImgDsn;
+        ImageButton ImgDsn;
 
         public ViewHolder(View view){
             super(view);
@@ -53,7 +54,7 @@ public class KelasAdapter extends RecyclerView.Adapter<KelasAdapter.ViewHolder> 
             txtJumMhs = view.findViewById(R.id.txtJumMhs);
             txtDsn = view.findViewById(R.id.txtDsn);
             txtSesi = view.findViewById(R.id.txtSesi);
-//            ImgDsn = view.findViewById(R.id.ImgDsn);
+            ImgDsn = view.findViewById(R.id.ImgDsn);
         }
     }
 }
